@@ -21,7 +21,7 @@ public class ProductService {
     }
 
 
-    public Product create (CreateProduct createProduct){
+   public Product create (CreateProduct createProduct){
 
         Product product = new Product();
 
@@ -31,7 +31,6 @@ public class ProductService {
         return productRepository.save(product);
 
     }
-
 
 
     public List<Product> list(){
