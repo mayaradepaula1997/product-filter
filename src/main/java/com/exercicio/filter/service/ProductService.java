@@ -3,8 +3,10 @@ package com.exercicio.filter.service;
 
 import com.exercicio.filter.entity.Product;
 import com.exercicio.filter.entity.dto.CreateProduct;
+import com.exercicio.filter.entity.dto.ProductFilterDTO;
 import com.exercicio.filter.entity.dto.UpdateProduct;
 import com.exercicio.filter.repository.ProductRepository;
+import com.exercicio.filter.utils.ProductSpecification;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -75,4 +77,15 @@ public class ProductService {
         else throw new Exception("Product not found");
 
     }
+
+
+    public List<Product> filter(ProductFilterDTO productFilterDTO){
+
+        return productRepository.findAll(ProductSpecification.comFiltros(productFilterDTO));
+    }
+
+
+
 }
+
+
