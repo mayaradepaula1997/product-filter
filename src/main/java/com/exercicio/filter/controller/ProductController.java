@@ -1,16 +1,17 @@
 package com.exercicio.filter.controller;
 
 
-import ch.qos.logback.core.spi.PreSerializationTransformer;
+
 import com.exercicio.filter.entity.Product;
 import com.exercicio.filter.entity.dto.CreateProduct;
+import com.exercicio.filter.entity.dto.ProductFilterDTO;
 import com.exercicio.filter.entity.dto.UpdateProduct;
 import com.exercicio.filter.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.standard.PresentationDirection;
+
 import java.util.List;
 
 @RestController
@@ -72,6 +73,15 @@ public class ProductController {
 
 
     }
+
+
+    @GetMapping("/filter")
+
+    public List<Product> filtar(ProductFilterDTO productFilterDTO){
+
+        return productService.filter(productFilterDTO);
+    }
+
 
 
 
